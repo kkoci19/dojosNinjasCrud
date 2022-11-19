@@ -1,0 +1,11 @@
+    <h1>Date</h1>
+    {% for dojo in dojos %}
+        <h1>{{dojo.id}}</h1>
+        <h1>{{dojo.name}}</h1>
+    {% endfor %}
+
+    @classmethod
+    def get_dojo_by_id(cls, data):
+        query= 'SELECT * FROM dojos WHERE id = %(dojos_id)s;'
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        return results[0]

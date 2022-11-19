@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Ninja</title>
+</head>
+
+<body class="container bg-secondary">
+    <div class="container mx-0 mx-sm-auto card card-header bg-dark mt-5">
+        <h1 class="text-info  mb-3">New Ninja</h1>
+        <form action="/create_ninja" method="post">
+            <select name="dojo_id" class="form-select" aria-label="Default select example">
+                <option>Open this select menu</option>
+                {% for dojo in dojos %}
+                <option option value="{{dojo.id}}">{{dojo.name}}</option>
+                {% endfor %}
+            </select>
+            <label for="first_name" class="text-bg-dark mb-3">First Name</label>
+            <input type="text" name="first_name" class="form-control text-bg-light p-1 mb-3">
+            <label for="last_name" class="text-bg-dark mb3">Last Name</label>
+            <input type="text" name="last_name" class="form-control text-bg-light p-1 mb-3">
+            <label for="age" class="text-bg-dark mb3">Age</label>
+            <input type="number" name="age" class="form-control text-bg-light p-1 mb-3">
+            <input type="submit" value="Create Ninja" class="btn btn-outline-danger mb-3 ">
+        </form>
+        <div class="d-grid gap-2 d-md-flex justify-content-between">
+            <a href="/ninjainfo" class="btn btn-outline-warning mb-3 ">Ninjas</a>
+            <a href="/" class="btn btn-outline-warning mb-3 ">Homepage</a>
+        </div>
+    </div>
+</body>
+
+</html>
